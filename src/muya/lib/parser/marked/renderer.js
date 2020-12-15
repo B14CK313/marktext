@@ -31,6 +31,10 @@ Renderer.prototype.inlineMath = function (math) {
   return output || math
 }
 
+Renderer.prototype.color = function (text, color) {
+  return `<span style="color: ${color};">${text}</span>`
+}
+
 Renderer.prototype.emoji = function (text, emoji) {
   if (this.options.emojiRenderer) {
     return this.options.emojiRenderer(emoji)

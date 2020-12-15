@@ -3,6 +3,7 @@ import backlash from './backlash'
 import highlight from './highlight'
 import header from './header'
 import link from './link'
+import color from './color'
 import htmlTag from './htmlTag'
 import hr from './hr'
 import tailHeader from './tailHeader'
@@ -35,6 +36,7 @@ export default {
   backlash,
   highlight,
   header,
+  color,
   link,
   htmlTag,
   hr,

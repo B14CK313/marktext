@@ -17,6 +17,7 @@ const inline = {
     '|^<\\?[\\s\\S]*?\\?>' + // processing instruction, e.g. <?php ?>
     '|^<![a-zA-Z]+\\s[\\s\\S]*?>' + // declaration, e.g. <!DOCTYPE html>
     '|^<!\\[CDATA\\[[\\s\\S]*?\\]\\]>', // CDATA section
+  color: /^(\[)([^\]]+?)\]#(\S+)/,
   link: /^!?\[(label)\]\(\s*(href)(?:\s+(title))?\s*\)/,
   reflink: /^!?\[(label)\]\[(?!\s*\])((?:\\[\[\]]?|[^\[\]\\])+)\]/,
   nolink: /^!?\[(?!\s*\])((?:\[[^\[\]]*\]|\\[\[\]]|[^\[\]])*)\](?:\[\])?/,

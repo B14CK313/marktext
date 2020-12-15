@@ -19,6 +19,10 @@ TextRenderer.prototype.inlineMath = function (math, displayMode) {
   return math
 }
 
+TextRenderer.prototype.color = function (text, color) {
+  return `<span style="color: ${color};">${text}</span>`
+}
+
 TextRenderer.prototype.emoji = function (text, emoji) {
   return emoji
 }

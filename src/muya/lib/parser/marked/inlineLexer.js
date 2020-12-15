@@ -115,6 +115,15 @@ InlineLexer.prototype.output = function (src) {
       continue
     }
 
+    // color
+    cap = this.rules.color.exec(src)
+    if (cap) {
+      src = src.substring(cap[0].length)
+      lastChar = cap[0].charAt(cap[0].length - 1)
+      text = cap[2]
+      out += this.renderer.color(text, cap[3])
+    }
+
     // link
     cap = this.rules.link.exec(src)
     if (cap && lowerPriority(src, cap[0].length, this.highPriorityLinkRules)) {

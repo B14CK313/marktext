@@ -162,6 +162,29 @@ const tokenizerFac = (src, beginRules, inlineRules, pos = 0, top, labels, option
     }
     if (inChunk) continue
 
+    // color
+    const colorTo = inlineRules.color.exec(src)
+    if (colorTo) {
+      pushPending()
+      tokens.push({
+        type: 'color',
+        raw: colorTo[0],
+        marker: colorTo[1],
+        attrs: {
+          color: colorTo[3]
+        },
+        range: {
+          start: pos,
+          end: pos + colorTo[0].length
+        },
+        parent: tokens,
+        content: colorTo[2]
+      })
+      src = src.substring(colorTo[0].length)
+      pos = pos + colorTo[0].length
+      continue
+    }
+
     // strong | em | emoji | inline_code | del | inline_math
     const chunks = ['inline_code', 'del', 'emoji', 'inline_math']
     for (const rule of chunks) {
